@@ -15,10 +15,15 @@ pipeline {
       }
       steps {
         sh 'hostname'
-        node(label: 'worker') {
-          echo 'allocate worker'
-        }
+        sh '''ip a
+ls'''
+      }
+    }
 
+    stage('stage2') {
+      steps {
+        echo 'stage2'
+        sh 'bash x.sh'
       }
     }
 
